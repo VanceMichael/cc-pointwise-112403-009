@@ -1,0 +1,30 @@
+{
+  "name": "服务零售调查样本回访与统计回补工作台",
+  "material_nature": "本地合成演练资料",
+  "description": "仅供本地开发和回归，记录不代表真实机构、交易或观测。",
+  "records": {
+    "sample_frame": [
+      {
+        "id": "F-21",
+        "month": "2026-10",
+        "stratum": "services",
+        "state": "included"
+      }
+    ],
+    "returns": [
+      {
+        "id": "R-7",
+        "frame_id": "F-21",
+        "form_version": 3,
+        "state": "submitted"
+      }
+    ],
+    "followups": [
+      {
+        "frame_id": "F-21",
+        "state": "business-moved"
+      }
+    ],
+    "notes": "合成名录、问卷和调查员回访。"
+  }
+}
