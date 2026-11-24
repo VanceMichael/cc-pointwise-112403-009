@@ -1,30 +1,102 @@
 {
-  "name": "服务零售调查样本回访与统计回补工作台",
+  "name": "服务业调查名录回访与有效样本覆盖采集",
   "material_nature": "本地合成演练资料",
-  "description": "仅供本地开发和回归，记录不代表真实机构、交易或观测。",
-  "records": {
-    "sample_frame": [
-      {
-        "id": "F-21",
-        "month": "2026-10",
-        "stratum": "services",
-        "state": "included"
-      }
-    ],
-    "returns": [
-      {
-        "id": "R-7",
-        "frame_id": "F-21",
-        "form_version": 3,
-        "state": "submitted"
-      }
-    ],
-    "followups": [
-      {
-        "frame_id": "F-21",
-        "state": "business-moved"
-      }
-    ],
-    "notes": "合成名录、问卷和调查员回访。"
-  }
+  "description": "资料中的机构、项目、交易、合同和回执均为虚构，仅用于本地开发与回归。",
+  "feeds": [
+    {
+      "id": "frame",
+      "label": "抽样名录与分层",
+      "records": [
+        {
+          "sample": "F-21",
+          "period": "2026-10",
+          "stratum": "住宿",
+          "inclusion_probability": "0.20",
+          "included": "yes",
+          "entity": "企业甲"
+        },
+        {
+          "sample": "F-22",
+          "period": "2026-10",
+          "stratum": "餐饮",
+          "inclusion_probability": "0.10",
+          "included": "yes",
+          "entity": "企业乙"
+        },
+        {
+          "sample": "F-23",
+          "period": "2026-10",
+          "stratum": "生活服务",
+          "inclusion_probability": "0.15",
+          "included": "yes",
+          "entity": "企业丙"
+        }
+      ]
+    },
+    {
+      "id": "returns",
+      "label": "企业填报页与问卷版本",
+      "records": [
+        {
+          "sample": "F-21",
+          "return": "R-71",
+          "form_version": "3",
+          "period": "2026-10",
+          "field": "营业额",
+          "value": "120",
+          "basis": "含税营业额",
+          "submitted": "yes"
+        },
+        {
+          "sample": "F-22",
+          "return": "R-72",
+          "form_version": "2",
+          "period": "2026-10",
+          "field": "服务收入",
+          "value": "80",
+          "basis": "平台代收款含在内",
+          "submitted": "yes"
+        },
+        {
+          "sample": "F-23",
+          "return": null,
+          "form_version": null,
+          "period": "2026-10",
+          "submitted": "no"
+        }
+      ]
+    },
+    {
+      "id": "followup",
+      "label": "回访和覆盖确认",
+      "records": [
+        {
+          "sample": "F-21",
+          "contact": "2026-10-30",
+          "state": "business-moved",
+          "new_entity": "企业甲新址",
+          "review": "pending"
+        },
+        {
+          "sample": "F-22",
+          "contact": "2026-10-30",
+          "state": "basis-corrected",
+          "corrected_basis": "不含平台代收款",
+          "revision": 2
+        },
+        {
+          "sample": "F-23",
+          "contact": "2026-10-31",
+          "state": "no-contact",
+          "review": "open"
+        },
+        {
+          "confirmation": "服务业覆盖-10",
+          "response_rate": "2/3",
+          "valid_rate": "1/3",
+          "state": "signed"
+        }
+      ]
+    }
+  ]
 }
